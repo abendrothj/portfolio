@@ -214,17 +214,6 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-10 text-center">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="aspect-video relative bg-muted">
-                <img
-                  src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&auto=format&fit=crop&q=80"
-                  alt="Argus Project Preview"
-                  className="object-cover w-full h-full"
-                  onError={(e) => {
-                    e.currentTarget.src = "/placeholder.svg"
-                    e.currentTarget.alt = "Argus Project (Placeholder)"
-                  }}
-                />
-              </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Argus</h3>
                 <p className="text-muted-foreground mb-4">
@@ -242,17 +231,6 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="aspect-video relative bg-muted">
-                <img
-                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80"
-                  alt="BaseX Project Preview"
-                  className="object-cover w-full h-full"
-                  onError={(e) => {
-                    e.currentTarget.src = "/placeholder.svg"
-                    e.currentTarget.alt = "BaseX Project (Placeholder)"
-                  }}
-                />
-              </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">BaseX</h3>
                 <p className="text-muted-foreground mb-4">
