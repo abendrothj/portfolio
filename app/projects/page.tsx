@@ -46,7 +46,7 @@ export default function ProjectsPage() {
 
   const filteredProjects =
     projects
-      .filter(project => project.name.toLowerCase() !== "abendrothj") // Exclude portfolio repository
+      .filter(project => !["portfolio", "abendrothj"].includes(project.name.toLowerCase())) // Exclude portfolio repositories
       .filter(project => 
         filter === "all" ? true : (
           (() => {
