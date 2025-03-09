@@ -39,11 +39,12 @@ jobs:
         run: npm run build
         env:
           CI: false
+          NEXT_PUBLIC_BASE_PATH: /portfolio
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: out
 
   deploy:
     environment:
