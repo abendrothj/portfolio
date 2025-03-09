@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Github, ExternalLink } from "lucide-react"
-import { getProjectBySlug, projectDetails, ProjectDetail } from "@/lib/projects"
+import { getProjectBySlug, projectDetails } from "@/lib/projects"
 import CodeBlock from "@/components/code-block"
 
 interface ProjectPageProps {
@@ -29,21 +29,12 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   return (
     <div className="container max-w-5xl mx-auto px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">{project.name}</h1>
-        <p className="text-xl text-muted-foreground">{project.description}</p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        <div className="lg:col-span-2">
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.technologies.map((tech) => (
-              <Badge key={tech} variant="secondary">
-                {tech}
-              </Badge>
-            ))}
+        <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+          <div>
+            <h1 className="text-4xl font-bold mb-2">{project.name}</h1>
+            <p className="text-xl text-muted-foreground">{project.description}</p>
           </div>
-
-          <div className="flex gap-4 mb-8">
+          <div className="flex gap-4">
             <Button asChild>
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="mr-2 h-5 w-5" />
@@ -60,29 +51,37 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             )}
           </div>
         </div>
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <Badge key={tech} variant="secondary">
+              {tech}
+            </Badge>
+          ))}
+        </div>
+      </div>
 
-        <div>
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+        <div className="lg:col-span-3">
           <Card>
             <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-4">Project Details</h3>
-              <dl className="space-y-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div>
-                  <dt className="text-sm font-medium text-muted-foreground">Status</dt>
-                  <dd>{project.status}</dd>
+                  <h3 className="text-sm font-medium text-muted-foreground mb-1">Status</h3>
+                  <p className="font-medium">{project.status}</p>
                 </div>
                 <div>
-                  <dt className="text-sm font-medium text-muted-foreground">Started</dt>
-                  <dd>{project.startDate}</dd>
+                  <h3 className="text-sm font-medium text-muted-foreground mb-1">Started</h3>
+                  <p className="font-medium">{project.startDate}</p>
                 </div>
                 <div>
-                  <dt className="text-sm font-medium text-muted-foreground">Last Updated</dt>
-                  <dd>{project.lastUpdated}</dd>
+                  <h3 className="text-sm font-medium text-muted-foreground mb-1">Last Updated</h3>
+                  <p className="font-medium">{project.lastUpdated}</p>
                 </div>
                 <div>
-                  <dt className="text-sm font-medium text-muted-foreground">Primary Language</dt>
-                  <dd>{project.primaryLanguage}</dd>
+                  <h3 className="text-sm font-medium text-muted-foreground mb-1">Primary Language</h3>
+                  <p className="font-medium">{project.primaryLanguage}</p>
                 </div>
-              </dl>
+              </div>
             </CardContent>
           </Card>
         </div>
