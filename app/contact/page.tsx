@@ -19,22 +19,25 @@ export default function ContactPage() {
     event.preventDefault()
     setIsSubmitting(true)
 
-    const formData = new FormData(event.currentTarget)
-    const name = formData.get("name") as string
-    const email = formData.get("email") as string
-    const message = formData.get("message") as string
-
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-
-      // Reset form
-      event.currentTarget.reset()
-
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+      const formData = new FormData(event.currentTarget)
+      const response = await fetch("https://formspree.io/f/xqapzjwz", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
       })
+
+      if (response.ok) {
+        event.currentTarget.reset()
+        toast({
+          title: "Message sent!",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        })
+      } else {
+        throw new Error("Failed to send message")
+      }
     } catch (error) {
       toast({
         title: "Something went wrong",
