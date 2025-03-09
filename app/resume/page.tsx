@@ -7,7 +7,7 @@ import { FileDown, ExternalLink } from "lucide-react"
 
 export default function ResumePage() {
   const [pdfError, setPdfError] = useState(false)
-  const resumePath = "/portfolio/jake_abendroth_resume.pdf"
+  const resumePath = "/jake_abendroth_resume.pdf"
 
   return (
     <div className="container max-w-5xl mx-auto px-4 py-12">
