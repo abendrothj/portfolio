@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -14,8 +13,8 @@ interface ProjectPageProps {
 }
 
 // Add this function to generate static paths
-export function generateStaticParams() {
-  return projectDetails.map((project: ProjectDetail) => ({
+export async function generateStaticParams() {
+  return projectDetails.map((project) => ({
     slug: project.slug,
   }))
 }
@@ -36,15 +35,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
         <div className="lg:col-span-2">
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-6">
-            <Image
-              src={project.image || "/placeholder.svg?height=400&width=800"}
-              alt={project.name}
-              fill
-              className="object-cover"
-            />
-          </div>
-
           <div className="flex flex-wrap gap-2 mb-6">
             {project.technologies.map((tech) => (
               <Badge key={tech} variant="secondary">
