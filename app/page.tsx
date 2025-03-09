@@ -213,33 +213,59 @@ export default function Home() {
         <div className="container max-w-5xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-10 text-center">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-semibold mb-2">Argus</h3>
-              <p className="text-muted-foreground mb-4">
-                A directory checksum/monitoring tool built in Rust that recursively scans directories and calculates
-                SHA-256 checksums.
-              </p>
-              <div className="flex justify-end">
-                <Button asChild variant="outline" size="sm">
-                  <Link href="/projects/argus">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Learn More
-                  </Link>
-                </Button>
+            <div className="bg-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="aspect-video relative bg-muted">
+                <img
+                  src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&auto=format&fit=crop&q=80"
+                  alt="Argus Project Preview"
+                  className="object-cover w-full h-full"
+                  onError={(e) => {
+                    e.currentTarget.src = "/placeholder.svg"
+                    e.currentTarget.alt = "Argus Project (Placeholder)"
+                  }}
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Argus</h3>
+                <p className="text-muted-foreground mb-4">
+                  A directory checksum/monitoring tool built in Rust that recursively scans directories and calculates
+                  SHA-256 checksums.
+                </p>
+                <div className="flex justify-end">
+                  <Button asChild variant="outline" size="sm">
+                    <Link href="/projects/argus">
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Learn More
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
-            <div className="bg-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-semibold mb-2">BaseX</h3>
-              <p className="text-muted-foreground mb-4">
-                A Base8/Base32/Base64 encoder/decoder implemented in C for efficient file encoding and decoding.
-              </p>
-              <div className="flex justify-end">
-                <Button asChild variant="outline" size="sm">
-                  <Link href="/projects/basex">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Learn More
-                  </Link>
-                </Button>
+            <div className="bg-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="aspect-video relative bg-muted">
+                <img
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80"
+                  alt="BaseX Project Preview"
+                  className="object-cover w-full h-full"
+                  onError={(e) => {
+                    e.currentTarget.src = "/placeholder.svg"
+                    e.currentTarget.alt = "BaseX Project (Placeholder)"
+                  }}
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">BaseX</h3>
+                <p className="text-muted-foreground mb-4">
+                  A Base8/Base32/Base64 encoder/decoder implemented in C for efficient file encoding and decoding.
+                </p>
+                <div className="flex justify-end">
+                  <Button asChild variant="outline" size="sm">
+                    <Link href="/projects/basex">
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Learn More
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
