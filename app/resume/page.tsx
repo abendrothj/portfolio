@@ -5,11 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { FileDown, ExternalLink } from "lucide-react"
 
-export const metadata = {
-  title: "Resume | Jake Abendroth",
-  description: "View and download Jake Abendroth's resume",
-}
-
 export default function ResumePage() {
   const [pdfError, setPdfError] = useState(false)
   const resumePath = "/portfolio/jake_abendroth_resume.pdf"
