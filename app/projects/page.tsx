@@ -31,12 +31,37 @@ export default function ProjectsPage() {
     getProjects()
   }, [])
 
-  const categories = ["all", "rust", "python", "c-cpp", "cybersecurity", "systems"]
+  const categories = [
+    { id: "all", label: "All" },
+    { id: "rust", label: "Rust" },
+    { id: "java", label: "Java" },
+    { id: "c", label: "C" },
+    { id: "python", label: "Python" },
+    { id: "web", label: "Web" },
+    { id: "systems", label: "Systems" },
+    { id: "algorithms", label: "Algorithms" },
+    { id: "cybersecurity", label: "Security" },
+    { id: "data-analysis", label: "Data Analysis" }
+  ]
 
   const filteredProjects =
-    filter === "all"
-      ? projects
-      : projects.filter((project) => project.topics.includes(filter) || project.language?.toLowerCase() === filter)
+    projects
+      .filter(project => project.name.toLowerCase() !== "abendrothj") // Exclude portfolio repository
+      .filter(project => 
+        filter === "all" ? true : (
+          (() => {
+            const lowercaseFilter = filter.toLowerCase()
+            const matchesTopic = project.topics.some(topic => 
+              topic.toLowerCase() === lowercaseFilter ||
+              (lowercaseFilter === "web" && ["typescript", "react", "nextjs"].includes(topic.toLowerCase())) ||
+              (lowercaseFilter === "systems" && ["systems", "c", "rust"].includes(topic.toLowerCase())) ||
+              (lowercaseFilter === "algorithms" && ["algorithms", "data-structures"].includes(topic.toLowerCase()))
+            )
+            const matchesLanguage = project.language?.toLowerCase() === lowercaseFilter
+            return matchesTopic || matchesLanguage
+          })()
+        )
+      )
 
   return (
     <div className="container max-w-5xl mx-auto px-4 py-12">
@@ -44,10 +69,10 @@ export default function ProjectsPage() {
       <p className="text-muted-foreground mb-8">A collection of my open-source work and personal projects</p>
 
       <Tabs defaultValue="all" className="mb-8">
-        <TabsList className="mb-4">
+        <TabsList className="mb-4 flex flex-wrap gap-2">
           {categories.map((category) => (
-            <TabsTrigger key={category} value={category} onClick={() => setFilter(category)}>
-              {category.charAt(0).toUpperCase() + category.slice(1).replace("-", "/")}
+            <TabsTrigger key={category.id} value={category.id} onClick={() => setFilter(category.id)}>
+              {category.label}
             </TabsTrigger>
           ))}
         </TabsList>
@@ -73,7 +98,7 @@ export default function ProjectsPage() {
             <>
               {filteredProjects.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="text-muted-foreground">No projects found with this filter.</p>
+                  <p className="text-muted-foreground">No projects found in this category.</p>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
