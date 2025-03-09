@@ -16,6 +16,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  output: 'export',  // Enable static exports
+  basePath: '/portfolio', // Replace with your repository name
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
