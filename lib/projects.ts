@@ -37,7 +37,7 @@ export interface ProjectDetail {
   benchmarks?: Benchmark
 }
 
-const projectDetails: ProjectDetail[] = [
+export const projectDetails: ProjectDetail[] = [
   {
     name: "Argus",
     slug: "argus",

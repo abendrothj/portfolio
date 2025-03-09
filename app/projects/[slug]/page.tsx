@@ -4,13 +4,20 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Github, ExternalLink } from "lucide-react"
-import { getProjectBySlug } from "@/lib/projects"
+import { getProjectBySlug, projectDetails, ProjectDetail } from "@/lib/projects"
 import CodeBlock from "@/components/code-block"
 
 interface ProjectPageProps {
   params: {
     slug: string
   }
+}
+
+// Add this function to generate static paths
+export function generateStaticParams() {
+  return projectDetails.map((project: ProjectDetail) => ({
+    slug: project.slug,
+  }))
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
