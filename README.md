@@ -22,7 +22,6 @@ My personal portfolio website showcasing my projects, skills, and experience. Bu
 - [React Server Components](https://nextjs.org/docs/getting-started/react-essentials#server-components)
 
 ### Deployment & Hosting
-- [Vercel](https://vercel.com) - Platform for frontend deployment and hosting
 - [GitHub](https://github.com) - Version control and project hosting
 
 ## Features
@@ -47,7 +46,7 @@ portfolio/
 └── styles/                # Global styles and Tailwind config
 ```
 
-## Local Development
+## Local Development (maybe even as a base for your own portfolio!)
 
 1. Clone the repository:
 ```bash
@@ -66,15 +65,10 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Building for Production
-
-```bash
-npm run build
-```
 
 ## Deployment
 
-The site is automatically deployed to Vercel when changes are pushed to the main branch.
+The site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
 
 ## License
 
