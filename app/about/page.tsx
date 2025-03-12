@@ -18,10 +18,11 @@ export default function AboutPage() {
         <div className="md:col-span-1">
           <div className="relative w-full aspect-square rounded-lg overflow-hidden">
             <Image
-              src="/placeholder.svg?height=400&width=400"
+              src="/composite.jpg"
               alt="Jake Abendroth"
-              fill
-              className="object-cover"
+              width={400}
+              height={400}
+              className="object-cover w-full h-full"
               priority
             />
           </div>
